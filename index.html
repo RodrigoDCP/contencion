@@ -43,8 +43,9 @@
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content hidden-scroll">
-      <h1 class="logo i18n-glitch" data-es="CONTENCIÓN:PSIQUIÁTRICO" data-en="PSYCHIATRIC:CONTAINMENT"
-        data-text="CONTENCIÓN: PSIQUIÁTRICO">CONTENCIÓN:PSIQUIÁTRICO</h1>
+      <h1 class="logo i18n-glitch" data-es="CONTENCIÓN:&#10;PSIQUIÁTRICO" data-en="PSYCHIATRIC:&#10;CONTAINMENT"
+        data-text="CONTENCIÓN:&#10;PSIQUIÁTRICO">CONTENCIÓN:&#10;PSIQUIÁTRICO
+      </h1>
       <p class="i18n"
         data-es="Sumérgete en una experiencia de terror donde el pánico es tu peor enemigo. Como investigador de turno, deberás monitorear las brechas de contención en un psiquiátrico abandonado. vigilante, metódico... y rápido."
         data-en="Immerse yourself in a psychological horror experience where panic is your greatest enemy. As the investigator on duty, you must monitor containment breaches within an abandoned asylum. Stay vigilant, stay methodical... and survive.">
@@ -96,11 +97,25 @@
 
   <!-- Trailer Section -->
   <section id="trailer">
-    <div class="trailer-container hidden-scroll">
-      <video loop playsinline controls controlslist="nodownload" disablePictureInPicture class="trailer-video">
-        <source src="assets/videos/trailer.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-      </video>
+    <div class="trailers-grid hidden-scroll">
+      <div class="trailer-item">
+        <h3 class="i18n" data-es="TRÁILER OFICIAL" data-en="OFFICIAL TRAILER">TRÁILER OFICIAL</h3>
+        <div class="trailer-container">
+          <video loop playsinline controls controlslist="nodownload" disablePictureInPicture class="trailer-video">
+            <source src="assets/videos/trailer.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      </div>
+      <div class="trailer-item">
+        <h3 class="i18n" data-es="TEASER DE LANZAMIENTO" data-en="LAUNCH TEASER">TEASER DE LANZAMIENTO</h3>
+        <div class="trailer-container">
+          <video loop playsinline controls controlslist="nodownload" disablePictureInPicture class="trailer-video">
+            <source src="assets/videos/trailer2.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      </div>
     </div>
   </section>
 

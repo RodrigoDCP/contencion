@@ -194,7 +194,10 @@ nav a:hover::after {
   text-decoration: none;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 10px;
+  white-space: pre-line;
 }
 
 .logo span {
@@ -205,6 +208,7 @@ nav a:hover::after {
 .glitch-text {
   position: relative;
   font-family: 'Courier Prime', monospace;
+  white-space: pre-line;
 }
 
 .glitch-text::before,
@@ -215,7 +219,8 @@ nav a:hover::after {
   top: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg-color);
+  background: transparent;
+  white-space: pre-line;
 }
 
 .glitch-text::before {
@@ -301,7 +306,7 @@ section {
 #hero h1 {
   font-size: 6rem;
   margin-bottom: 10px;
-  line-height: 0.9;
+  line-height: 1;
   letter-spacing: -2px;
 }
 
@@ -425,15 +430,45 @@ section {
   align-items: center;
 }
 
+.trailers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.trailer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.trailer-item h3 {
+  color: var(--primary-color);
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
 .trailer-container {
   width: 100%;
-  max-width: 1000px;
   position: relative;
   background: #000;
   border: 1px solid var(--border-color);
   box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
   line-height: 0;
   overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.trailer-container:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.2);
+  transform: translateY(-5px);
 }
 
 .trailer-video {
@@ -872,6 +907,11 @@ footer .rcg {
   .section-title {
     font-size: 1.6rem;
     letter-spacing: 2px;
+  }
+
+  .trailers-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .feature-card {
