@@ -184,7 +184,13 @@
   <script>
     async function loadReport() {
       const urlParams = new URLSearchParams(window.location.search);
-      const reportId = urlParams.get('id') || '000';
+      let reportId = urlParams.get('id') || '000';
+
+      // Validación de seguridad: Sólo permitir caracteres alfanuméricos para evitar ataques de ruta
+      if (!/^[a-z0-9-_]+$/i.test(reportId)) {
+        console.error("ID de reporte no válido");
+        reportId = '000';
+      }
 
       try {
         const response = await fetch(`${reportId}.md`);
@@ -202,19 +208,42 @@
           content = lines.slice(1).join('\n');
         }
 
-        // Actualizar UI
+        // Actualizar UI básica
         document.getElementById('report-id').innerText = `ID: ${reportId}`;
-        document.getElementById('report-title').innerText = title;
-        document.title = `PSI-DATA | ${title}`;
+        const safeTitle = document.createElement('div');
+        safeTitle.textContent = title;
+        document.getElementById('report-title').innerText = safeTitle.textContent;
+        document.title = `PSI-DATA | ${safeTitle.textContent}`;
 
         // Renderizar Markdown
         marked.setOptions({
           breaks: true,
           gfm: true
         });
-        document.getElementById('markdown-content').innerHTML = marked.parse(content);
 
-        // Meta simulada (esto podría venir de un JSON de catálogo en el futuro)
+        // Convertir markdown a HTML
+        const rawHtml = marked.parse(content);
+
+        // Sanitización simple: Eliminar etiquetas <script> y atributos on* (XSS mitigation)
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(rawHtml, 'text/html');
+
+        // Eliminar scripts
+        doc.querySelectorAll('script').forEach(s => s.remove());
+
+        // Eliminar atributos de evento
+        const allElements = doc.querySelectorAll('*');
+        allElements.forEach(el => {
+          Array.from(el.attributes).forEach(attr => {
+            if (attr.name.startsWith('on')) {
+              el.removeAttribute(attr.name);
+            }
+          });
+        });
+
+        document.getElementById('markdown-content').innerHTML = doc.body.innerHTML;
+
+        // Meta simulada
         document.getElementById('report-date').innerText = "25 ENE, 2026";
 
       } catch (error) {
