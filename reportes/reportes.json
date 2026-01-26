@@ -1,5 +1,15 @@
 [
   {
+    "id": "001",
+    "title": "Bitácora de Desarrollo: Esencia de COPS",
+    "excerpt": "Inspiración detrás de COPS y la esencia del juego.",
+    "date": "26 Ene, 2026",
+    "tags": [
+      "Concepto",
+      "Desarrollo"
+    ]
+  },
+  {
     "id": "000",
     "title": "Bitácora de Desarrollo: Pre-Lanzamiento",
     "excerpt": "Detalles sobre el uso de IA Gemini para assets y el proceso de creación manual de mecánicas y UI.",
@@ -7,7 +17,6 @@
     "tags": [
       "Desarrollo",
       "IA"
-    ],
-    "readTime": "5 min"
+    ]
   }
 ]

@@ -243,8 +243,27 @@
 
         document.getElementById('markdown-content').innerHTML = doc.body.innerHTML;
 
-        // Meta simulada
-        document.getElementById('report-date').innerText = "25 ENE, 2026";
+        // Cargar metadatos dinámicos (Fecha y Tags) desde reportes.json
+        try {
+          const metaResponse = await fetch('reportes.json');
+          if (metaResponse.ok) {
+            const articles = await metaResponse.json();
+            const currentArt = articles.find(a => a.id === reportId);
+            if (currentArt) {
+              document.getElementById('report-date').innerText = `FECHA: ${currentArt.date.toUpperCase()}`;
+              const tagsContainer = document.getElementById('report-tags');
+              tagsContainer.innerHTML = '';
+              currentArt.tags.forEach(tag => {
+                const tagSpan = document.createElement('span');
+                tagSpan.className = "px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider font-semibold rounded-md";
+                tagSpan.textContent = tag;
+                tagsContainer.appendChild(tagSpan);
+              });
+            }
+          }
+        } catch (metaError) {
+          console.warn("No se pudieron cargar los metadatos dinámicos:", metaError);
+        }
 
       } catch (error) {
         document.getElementById('markdown-content').innerHTML = `
