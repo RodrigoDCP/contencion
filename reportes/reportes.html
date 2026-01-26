@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es" class="antialiased">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PSI-DATA | Reporte Detallado</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Marked.js for Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Iconos Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Google Fonts: Inter & Courier Prime -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Courier+Prime:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              900: '#000000',
+              800: '#121212',
+              700: '#1C1C1E',
+            },
+            crt: 'rgb(var(--crt) / <alpha-value>)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Courier Prime', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --crt: 0 0 0;
+    }
+
+    .dark {
+      --crt: 0 255 65;
+    }
+
+    body {
+      background-color: #FBFBFD;
+    }
+
+    .dark body {
+      background-color: #000000;
+    }
+
+    .markdown-body {
+      line-height: 1.6;
+    }
+
+    .markdown-body h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
+
+    .dark .markdown-body h1 {
+      color: #fff;
+    }
+
+    .markdown-body h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .dark .markdown-body h2 {
+      border-color: #333;
+    }
+
+    .markdown-body p {
+      margin-bottom: 1rem;
+    }
+
+    .markdown-body blockquote {
+      border-left: 4px solid rgb(var(--crt));
+      padding-left: 1rem;
+      color: #7f8c8d;
+      font-style: italic;
+      background: rgba(var(--crt) / 0.05);
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .markdown-body li {
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown-body h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .loading-spinner {
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-top: 3px solid #000;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen">
+  <!-- Navbar -->
+  <nav
+    class="fixed top-0 w-full z-50 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-black/80 backdrop-blur-xl">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../home.html" class="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity">
+        <i class="ph ph-arrow-left"></i> Volver a Inicio
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="w-2 h-2 rounded-full bg-crt shadow-[0_0_8px_rgba(var(--crt),0.5)]"></div>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+          <i class="ph ph-moon text-xl block dark:hidden"></i>
+          <i class="ph ph-sun text-xl hidden dark:block"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 pt-32 pb-24">
+    <!-- Header del Reporte -->
+    <div id="report-header" class="mb-12 animate-fade-in">
+      <div id="report-meta" class="flex items-center gap-3 text-xs font-mono text-gray-400 mb-4">
+        <span id="report-id">ID: ---</span>
+        <span>•</span>
+        <span id="report-date">FECHA: ---</span>
+      </div>
+      <h1 id="report-title" class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Cargando reporte...</h1>
+      <div id="report-tags" class="flex gap-2"></div>
+    </div>
+
+    <!-- Contenido Markdown -->
+    <div id="markdown-content" class="markdown-body prose dark:prose-invert max-w-none">
+      <div class="flex justify-center py-20">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+    <!-- Footer Estándar -->
+    <footer class="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800 text-center">
+      <p class="text-sm text-gray-500 dark:text-gray-500">
+        Copyright &copy; 2026 Rodrigo David Cañas Pérez. Todos los derechos reservados.
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    async function loadReport() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const reportId = urlParams.get('id') || '000';
+
+      try {
+        const response = await fetch(`${reportId}.md`);
+        if (!response.ok) throw new Error('Archivo no encontrado');
+
+        const markdown = await response.text();
+
+        // Separar el título de las primeras líneas de forma robusta
+        const lines = markdown.split(/\r?\n/);
+        let title = "Reporte Sin Título";
+        let content = markdown;
+
+        if (lines.length > 0 && lines[0].startsWith('# ')) {
+          title = lines[0].replace(/^#\s+/, '');
+          content = lines.slice(1).join('\n');
+        }
+
+        // Actualizar UI
+        document.getElementById('report-id').innerText = `ID: ${reportId}`;
+        document.getElementById('report-title').innerText = title;
+        document.title = `PSI-DATA | ${title}`;
+
+        // Renderizar Markdown
+        marked.setOptions({
+          breaks: true,
+          gfm: true
+        });
+        document.getElementById('markdown-content').innerHTML = marked.parse(content);
+
+        // Meta simulada (esto podría venir de un JSON de catálogo en el futuro)
+        document.getElementById('report-date').innerText = "25 ENE, 2026";
+
+      } catch (error) {
+        document.getElementById('markdown-content').innerHTML = `
+                    <div class="text-center py-20">
+                        <i class="ph ph-warning-octagon text-5xl text-red-500 mb-4"></i>
+                        <h2 class="text-xl font-bold">Error de Acceso</h2>
+                        <p class="text-gray-500 mt-2">No se pudo localizar el archivo del reporte solicitado.</p>
+                        <a href="../home.html" class="inline-block mt-6 px-6 py-2 bg-black text-white rounded-full text-sm">Regresar</a>
+                    </div>
+                `;
+        document.getElementById('report-title').innerText = "No encontrado";
+      }
+    }
+
+    // --- MODO OSCURO ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Detectar modo oscuro del sistema o manual
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+    });
+
+    loadReport();
+  </script>
+</body>
+
+</html>

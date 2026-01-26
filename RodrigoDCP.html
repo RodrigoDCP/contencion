@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es" class="antialiased">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RodrigoDCP | Perfil de Desarrollador</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Iconos Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              900: '#000000',
+              800: '#121212',
+              700: '#1C1C1E',
+            },
+            crt: 'rgb(var(--crt) / <alpha-value>)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --crt: 0 0 0;
+    }
+
+    .dark {
+      --crt: 0 255 65;
+    }
+
+    body {
+      background-color: #FBFBFD;
+      scroll-behavior: smooth;
+    }
+
+    .dark body {
+      background-color: #000000;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .dark .glass-panel {
+      background: rgba(18, 18, 18, 0.7);
+    }
+  </style>
+</head>
+
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+  <!-- Navbar -->
+  <nav
+    class="fixed top-0 w-full z-50 glass-panel border-b border-gray-200 dark:border-gray-800 transition-colors duration-500">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="home.html" class="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity">
+        <i class="ph ph-arrow-left"></i> Volver a Terminal
+      </a>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+          <i class="ph ph-moon text-xl block dark:hidden"></i>
+          <i class="ph ph-sun text-xl hidden dark:block"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 pt-32 pb-24">
+
+    <!-- Perfil Header -->
+    <header class="mb-16 text-center md:text-left flex flex-col md:flex-row items-center gap-8 animate-fade-in">
+      <div
+        class="w-32 h-32 rounded-full bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-800 dark:to-dark-700 flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden">
+        <img src="assets/images/image.png" alt="RodrigoDCP"
+          class="w-full h-full object-cover grayscale hover:grayscale-0 scale-100 hover:scale-110 transition-all duration-500 cursor-pointer">
+      </div>
+      <div>
+        <h1 class="text-4xl font-bold tracking-tight mb-2">Rodrigo D. Cañas Pérez</h1>
+        <p class="text-xl text-gray-500 dark:text-gray-400 font-medium mb-4">Ingeniero en Sistemas & Especialista en
+          Ciberseguridad</p>
+        <div class="flex justify-center md:justify-start gap-4">
+          <a href="https://github.com/RodrigoDCP" target="_blank"
+            class="text-gray-400 hover:text-crt transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
+          <a href="https://www.youtube.com/@COPS-i2d" target="_blank"
+            class="text-gray-400 hover:text-crt transition-colors"><i class="ph ph-youtube-logo text-2xl"></i></a>
+          <a href="https://www.instagram.com/keny_hdr?igsh=aXVrbmIwcGs1aHQ1" target="_blank"
+            class="text-gray-400 hover:text-crt transition-colors"><i class="ph ph-instagram-logo text-2xl"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Biografía -->
+    <section class="mb-16">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 flex items-center gap-2">
+        <i class="ph ph-fingerprint text-crt"></i> Sobre Mí
+      </h2>
+      <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 leading-relaxed space-y-4">
+        <p>
+          Soy un <strong>Ingeniero en Sistemas</strong> apasionado por la convergencia entre la seguridad informática y
+          el desarrollo creativo. Mi enfoque profesional combina la rigurosidad técnica de la ciberseguridad con la
+          narrativa inmersiva del desarrollo de videojuegos.
+        </p>
+        <p>
+          Durante dos años, lideré el club de ciberseguridad en la organización <strong>AAAIMX</strong>, específicamente
+          en un capítulo enfocado a la investigación de la Inteligencia Artificial. En esta etapa, dirigí cursos de
+          hacking ético, organizé concursos CTF y dicté ponencias sobre vulnerabilidades y defensa digital.
+        </p>
+        <p>
+          Actualmente dirijo el desarrollo de <strong>COPS (Contención: Psiquiátrico)</strong>, un título indie en 2D
+          que fusiona mecánicas de gestión de recursos, observación pasiva e investigación. En este proyecto, utilizo IA
+          para optimizar la productividad en el diseño de assets, cubriendo la brecha artística con soluciones
+          tecnológicas innovadoras.
+        </p>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section class="mb-16">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 flex items-center gap-2">
+        <i class="ph ph-lightning text-crt"></i> Perfil Profesional
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="font-semibold mb-4 flex items-center gap-2"><i class="ph ph-game-controller text-crt"></i> Game
+            Development & Design</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">JavaScript</span>
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">HTML5
+              / CSS3</span>
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">Narrative
+              & Lore Design</span>
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">2D
+              Mechanics Design</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4 flex items-center gap-2"><i class="ph ph-shield-check text-crt"></i>
+            Ciberseguridad & Sistemas</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">Pentesting</span>
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">Kali
+              Linux</span>
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">MySQL
+              / MariaDB</span>
+            <span
+              class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-transparent hover:border-crt/30 transition-all font-mono">Linux
+              Administration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyecto Actual -->
+    <section class="mb-16">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Proyecto Actual</h2>
+      <div
+        class="group relative bg-gray-50 dark:bg-dark-800 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-crt/20 transition-all overflow-hidden">
+        <div
+          class="absolute top-0 right-0 w-32 h-32 bg-crt/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-crt/10 transition-colors">
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Contención: Psiquiátrico</h3>
+        <p class="text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+          Un simulador de supervivencia y horror técnico en 2D que integra investigación, incertidumbre y una gestión de
+          recursos crítica en un entorno psiquiátrico hostil.
+        </p>
+        <a href="home.html" class="inline-flex items-center gap-2 text-crt font-medium text-sm hover:underline">
+          Ver Terminal de Investigación <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- Footer Estándar -->
+    <footer class="pt-16 border-t border-gray-200 dark:border-gray-800 text-center">
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Copyright &copy; 2026 Rodrigo David Cañas Pérez. Todos los derechos reservados.
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Modo Oscuro
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Cargar preferencia
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+    });
+  </script>
+</body>
+
+</html>
