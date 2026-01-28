@@ -1,5 +1,15 @@
 [
   {
+    "id": "002",
+    "title": "Bitácora de Desarrollo: Diseño de la UI",
+    "excerpt": "La interfaz no acompaña al juego, es el juego.",
+    "date": "28 Ene, 2026",
+    "tags": [
+      "Diseño",
+      "Desarrollo"
+    ]
+  },
+  {
     "id": "001",
     "title": "Bitácora de Desarrollo: Esencia de COPS",
     "excerpt": "Inspiración detrás de COPS y la esencia del juego.",
