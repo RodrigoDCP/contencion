@@ -1,5 +1,15 @@
 [
   {
+    "id": "003",
+    "title": "Bitácora de Desarrollo: Ecosistema de COPS",
+    "excerpt": "Herramientas y tecnologías utilizadas durante el desarrollo de COPS.",
+    "date": "30 Ene, 2026",
+    "tags": [
+      "Concepto",
+      "Desarrollo"
+    ]
+  },
+  {
     "id": "002",
     "title": "Bitácora de Desarrollo: Diseño de la UI",
     "excerpt": "La interfaz no acompaña al juego, es el juego.",
