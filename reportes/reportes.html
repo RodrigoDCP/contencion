@@ -156,7 +156,8 @@
   </nav>
 
   <main class="max-w-3xl mx-auto px-6 pt-32 pb-24">
-    <!-- Header del Reporte -->
+    <!-- Header del Reporte original (Comentado para respaldo) -->
+    <!--
     <div id="report-header" class="mb-12 animate-fade-in">
       <div id="report-meta" class="flex items-center gap-3 text-xs font-mono text-gray-400 mb-4">
         <span id="report-id">ID: ---</span>
@@ -166,6 +167,26 @@
       <h1 id="report-title" class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Cargando reporte...</h1>
       <div id="report-tags" class="flex gap-2"></div>
     </div>
+    -->
+
+    <!-- Nuevo Header con soporte para Banner -->
+    <div id="report-header-container" class="mb-12 animate-fade-in">
+      <div id="banner-wrapper"
+        class="hidden mb-8 overflow-hidden rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800">
+        <img id="report-banner" src="" alt="Banner del reporte" class="w-full h-auto object-cover max-h-[300px]">
+      </div>
+
+      <div id="report-header">
+        <div id="report-meta" class="flex items-center gap-3 text-xs font-mono text-gray-400 mb-4">
+          <span id="report-id">ID: ---</span>
+          <span>•</span>
+          <span id="report-date">FECHA: ---</span>
+        </div>
+        <h1 id="report-title" class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Cargando reporte...</h1>
+        <div id="report-tags" class="flex gap-2"></div>
+      </div>
+    </div>
+
 
     <!-- Contenido Markdown -->
     <div id="markdown-content" class="markdown-body prose dark:prose-invert max-w-none">
@@ -259,6 +280,14 @@
                 tagSpan.textContent = tag;
                 tagsContainer.appendChild(tagSpan);
               });
+
+              // --- LOGICA DE BANNER ---
+              if (currentArt.banner) {
+                const bannerImg = document.getElementById('report-banner');
+                const bannerWrapper = document.getElementById('banner-wrapper');
+                bannerImg.src = currentArt.banner;
+                bannerWrapper.classList.remove('hidden');
+              }
             }
           }
         } catch (metaError) {

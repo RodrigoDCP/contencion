@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP001",
+    "title": "AP: Restructuración del sistema UV + San Valentín",
+    "excerpt": "Rediseño completo del sistema de UV y contenido temático para la temporada de San Valentín.",
+    "date": "05 Feb, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Valentín"
+    ],
+    "banner": "../assets/images/AP001/Banner.png"
+  },
+  {
     "id": "003",
     "title": "Bitácora de Desarrollo: Ecosistema de COPS",
     "excerpt": "Herramientas y tecnologías utilizadas durante el desarrollo de COPS.",
