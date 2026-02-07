@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP002",
+    "title": "AP: Logros de Steam",
+    "excerpt": "Implementación de un sistema de Logros de Steam a COPS.",
+    "date": "07 Feb, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Logros"
+    ],
+    "banner": "../assets/images/AP002/Banner.png"
+  },
+  {
     "id": "AP001",
     "title": "AP: Restructuración del sistema UV + San Valentín",
     "excerpt": "Rediseño completo del sistema de UV y contenido temático para la temporada de San Valentín.",
