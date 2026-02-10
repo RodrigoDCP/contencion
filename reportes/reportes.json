@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP003",
+    "title": "AP: Skin de herramientas",
+    "excerpt": "Implementación de nuevas skins para las herramientas de campo.",
+    "date": "10 Feb, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Diseño"
+    ],
+    "banner": "../assets/images/AP003/todos.gif"
+  },
+  {
     "id": "AP002",
     "title": "AP: Logros de Steam",
     "excerpt": "Implementación de un sistema de Logros de Steam a COPS.",
