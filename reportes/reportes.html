@@ -134,6 +134,115 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Image Comparison Slider Styles */
+    .comparison-slider {
+      --position: 50%;
+      position: relative;
+      width: 100%;
+      margin: 2rem 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      aspect-ratio: 16 / 9;
+    }
+
+    .comparison-slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .img-after {
+      z-index: 5;
+    }
+
+    .img-before {
+      z-index: 10;
+      clip-path: inset(0 calc(100% - var(--position)) 0 0);
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--position);
+      width: 2px;
+      background: white;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .slider-handle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path fill="currentColor" d="m101.66 173.66l-42.35-42.34a8 8 0 0 1 0-11.32l42.35-42.34a8 8 0 0 1 11.32 11.32L79.31 120h97.38l-33.69-33.66a8 8 0 0 1 11.32-11.32l42.35 42.34a8 8 0 0 1 0 11.32l-42.35 42.34a8 8 0 0 1-11.32-11.32L176.69 136H79.31l33.67 33.66a8 8 0 0 1-11.32 11.32Z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px;
+    }
+
+    .comparison-slider input[type="range"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      outline: none;
+      margin: 0;
+      cursor: col-resize;
+      z-index: 30;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .comparison-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 2px;
+      height: 1000px;
+      background: transparent;
+    }
+
+    .comparison-label {
+      position: absolute;
+      bottom: 12px;
+      padding: 4px 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+      z-index: 15;
+    }
+
+    .label-before {
+      left: 12px;
+    }
+
+    .label-after {
+      right: 12px;
+    }
   </style>
 </head>
 
@@ -264,6 +373,9 @@
 
         document.getElementById('markdown-content').innerHTML = doc.body.innerHTML;
 
+        // Inicializar sliders después de cargar el contenido
+        initSliders();
+
         // Cargar metadatos dinámicos (Fecha y Tags) desde reportes.json
         try {
           const metaResponse = await fetch('reportes.json');
@@ -326,6 +438,18 @@
         localStorage.theme = 'light';
       }
     });
+
+    function initSliders() {
+      const sliders = document.querySelectorAll('.comparison-slider');
+      sliders.forEach(slider => {
+        const input = slider.querySelector('input');
+
+        input.addEventListener('input', (e) => {
+          const value = e.target.value;
+          slider.style.setProperty('--position', `${value}%`);
+        });
+      });
+    }
 
     loadReport();
   </script>

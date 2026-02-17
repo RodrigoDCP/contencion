@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP004",
+    "title": "AP: Mejoras visuales",
+    "excerpt": "Mejoras visuales en el sistema de camaras y un rediseño mejorado para la terminal.",
+    "date": "16 Feb, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Diseño"
+    ],
+    "banner": "../assets/images/AP004/banner04.jpg"
+  },
+  {
     "id": "AP003",
     "title": "AP: Skin de herramientas",
     "excerpt": "Implementación de nuevas skins para las herramientas de campo.",
