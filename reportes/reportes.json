@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP005",
+    "title": "AP: Rediseño de entidades",
+    "excerpt": "Rediseño de entidades utilizando tecnicas de diseño clasicas como granularidad, ruido visual, suciedad y VHS.",
+    "date": "20 Feb, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Diseño"
+    ],
+    "banner": "../assets/images/AP005/banner.jpg"
+  },
+  {
     "id": "AP004",
     "title": "AP: Mejoras visuales",
     "excerpt": "Mejoras visuales en el sistema de camaras y un rediseño mejorado para la terminal.",

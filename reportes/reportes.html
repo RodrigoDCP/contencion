@@ -138,14 +138,19 @@
     /* Image Comparison Slider Styles */
     .comparison-slider {
       --position: 50%;
+      --slider-width: 100%;
+      --slider-height: auto;
+      --slider-aspect-ratio: 16 / 9;
+
       position: relative;
-      width: 100%;
-      margin: 2rem 0;
+      width: var(--slider-width);
+      height: var(--slider-height);
+      aspect-ratio: var(--slider-aspect-ratio);
+      margin: 2rem auto;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      aspect-ratio: 16 / 9;
     }
 
     .comparison-slider img {
