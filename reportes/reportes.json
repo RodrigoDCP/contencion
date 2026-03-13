@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP006",
+    "title": "AP: Tutorial",
+    "excerpt": "Implementación de un tutorial guiado paso a paso para acompañar a los jugadores durante las primeras fases del juego.",
+    "date": "22 Feb, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Tutorial"
+    ],
+    "banner": "../assets/images/AP006/banner.jpg"
+  },
+  {
     "id": "AP005",
     "title": "AP: Rediseño de entidades",
     "excerpt": "Rediseño de entidades utilizando tecnicas de diseño clasicas como granularidad, ruido visual, suciedad y VHS.",
