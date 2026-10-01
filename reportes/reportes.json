@@ -1,5 +1,17 @@
 [
   {
+    "id": "AP007",
+    "title": "AP: Set de Contención y Mapeo de controles",
+    "excerpt": "Contenido nuevo con tematica de contención y mapeo de controles en UI.",
+    "date": "17 Sep, 2026",
+    "tags": [
+      "Actualización",
+      "Parche",
+      "Tienda"
+    ],
+    "banner": "../assets/images/AP007/banner.jpg"
+  },
+  {
     "id": "AP006",
     "title": "AP: Tutorial",
     "excerpt": "Implementación de un tutorial guiado paso a paso para acompañar a los jugadores durante las primeras fases del juego.",
